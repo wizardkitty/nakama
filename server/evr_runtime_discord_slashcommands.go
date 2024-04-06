@@ -1031,7 +1031,8 @@ func updateSlashCommands(s *discordgo.Session, logger runtime.Logger, guildID st
 	}
 }
 
-func RegisterPartySlashCommands(ctx context.Context, logger runtime.Logger, nk runtime.NakamaModule, pipeline *Pipeline, bot *discordgo.Session, discordRegistry DiscordRegistry) error {
+func RegisterPartySlashCommands(ctx context.Context, discordRegistry DiscordRegistry, pipeline *Pipeline) error {
+
 	partyCommandHandlers := map[string]func(s *discordgo.Session, i *discordgo.InteractionCreate){
 		"party": func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 
